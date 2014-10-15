@@ -1,9 +1,9 @@
 // The root URL for the RESTful services
-var rootURL = "http://localhost/cellar/api/wines";
+var rootURL = "http://localhost:8000/cellar/wines";
 
 var currentWine;
 
-// Retrieve wine list when application starts 
+// Retrieve wine list when application starts
 findAll();
 
 // Nothing to delete in initial application state
@@ -53,7 +53,7 @@ $("img").error(function(){
 });
 
 function search(searchKey) {
-	if (searchKey == '') 
+	if (searchKey == '')
 		findAll();
 	else
 		findByName(searchKey);
@@ -81,7 +81,7 @@ function findByName(searchKey) {
 		type: 'GET',
 		url: rootURL + '/search/' + searchKey,
 		dataType: "json",
-		success: renderList 
+		success: renderList
 	});
 }
 
@@ -174,8 +174,8 @@ function renderDetails(wine) {
 // Helper function to serialize all the form fields into a JSON string
 function formToJSON() {
 	return JSON.stringify({
-		"id": $('#wineId').val(), 
-		"name": $('#name').val(), 
+		"id": $('#wineId').val(),
+		"name": $('#name').val(),
 		"grapes": $('#grapes').val(),
 		"country": $('#country').val(),
 		"region": $('#region').val(),
